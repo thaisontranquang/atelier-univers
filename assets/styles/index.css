@@ -1,0 +1,135 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.canvas {
+  height: 100%;
+  background-image: radial-gradient(ellipse farthest-corner at center top, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);
+  cursor: move;
+  position: relative;
+  z-index: 1;
+}
+.canvas.canvas-red {
+  background-image: radial-gradient(ellipse farthest-corner at center top, rgb(255, 0, 0) 0%, hsl(255, 100%, 1%) 100%);
+}
+.canvas.canvas-orange {
+  background-image: radial-gradient(ellipse farthest-corner at center top, rgb(255, 89, 0) 0%, hsl(255, 100%, 1%) 100%);
+}
+.canvas.canvas-yellow {
+  background-image: radial-gradient(ellipse farthest-corner at center top, rgb(234, 182, 11) 0%, hsl(255, 100%, 1%) 100%);
+}
+.canvas.canvas-green {
+  background-image: radial-gradient(ellipse farthest-corner at center top, rgb(46, 153, 0) 0%, hsl(255, 100%, 1%) 100%);
+}
+.canvas.canvas-blue {
+  background-image: radial-gradient(ellipse farthest-corner at center top, rgb(0, 15, 153) 0%, hsl(255, 100%, 1%) 100%);
+}
+.canvas.canvas-indigo {
+  background-image: radial-gradient(ellipse farthest-corner at center top, rgb(103, 3, 197) 0%, hsl(255, 100%, 1%) 100%);
+}
+.canvas.canvas-purple {
+  background-image: radial-gradient(ellipse farthest-corner at center top, rgb(216, 0, 220) 0%, hsl(255, 100%, 1%) 100%);
+}
+
+button {
+  cursor: pointer;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  border: unset;
+  outline: unset;
+  box-shadow: unset;
+  border-radius: 2rem;
+}
+
+.start-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  font-size: 2em;
+  position: absolute;
+  z-index: 999;
+  width: 100vw;
+  transition: 1s ease-in-out;
+}
+
+.controls {
+  top: 0;
+  position: absolute;
+  z-index: 999;
+}
+
+.colors-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+  position: absolute;
+  z-index: 990;
+  bottom: 5rem;
+  width: 100%;
+}
+.colors-container .color-button {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+}
+
+.hidden {
+  opacity: 0;
+}/*# sourceMappingURL=index.css.map */
