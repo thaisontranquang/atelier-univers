@@ -279,6 +279,6 @@ var trans = {
   app.run();
 })();
 window.addEventListener('resize',function(){
- this.canvas.width = w = window.innerWidth;
- this.canvas.height = h = window.innerHeight;
+ this.canvas.width = window.innerWidth;
+ this.canvas.height = window.innerHeight;
 }, false);

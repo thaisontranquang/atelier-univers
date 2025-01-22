@@ -6,6 +6,14 @@ body {
   background-color: black;
 }
 
+.h1 {
+  font-size: 7rem;
+  font-weight: 700;
+  font-family: "Fraunces", sans-serif;
+  color: #fff;
+  margin: 2rem 0;
+}
+
 .canvas {
   height: 100%;
   background-image: radial-gradient(ellipse farthest-corner at center top, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);
@@ -61,6 +69,25 @@ button {
   z-index: 999;
   width: 100vw;
   transition: 1s ease-in-out;
+}
+
+.end-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  font-size: 2em;
+  position: absolute;
+  z-index: 0;
+  width: 100vw;
+  transition: 1s ease-in-out;
+}
+
+.end-screen.active {
+  z-index: 999;
 }
 
 .controls-container {

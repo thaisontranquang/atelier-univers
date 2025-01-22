@@ -2,17 +2,25 @@ window.addEventListener('load', event => {
   let canvas = document.getElementById('canv')
   let startButton = document.getElementById('startButton')
   let stopButton = document.getElementById('stopButton')
-  let resetButton = document.getElementById('resetButton')
+  let resetButtons = document.querySelectorAll('.reset-button')
+  let startScreen = document.getElementById('startScreen')
+  let endScreen = document.getElementById('endScreen')
 
   let audio = null
-  let whiteNoise = new Audio('/assets/sounds/bruit-blanc.mp3')
+  let whiteNoise = new Audio('/assets/sounds/white-8D.mp3')
 
   startButton.addEventListener('click', function () {
-    document.getElementById('startScreen').classList.add('hidden')
-    document.getElementById('startScreen').remove()
+    startScreen.classList.add('hidden')
+    startScreen.remove()
     document.getElementById('colorsContainer').classList.remove('hidden')
     document.getElementById('globalControlsContainer').classList.remove('hidden')
     canvas.classList.add('canvas-black')
+  })
+
+  resetButtons.forEach(button => {
+    button.addEventListener('click', function () {
+      window.location.reload();
+    })
   })
 
   stopButton.addEventListener('click', function () {
@@ -29,7 +37,13 @@ window.addEventListener('load', event => {
 
     setTimeout(() => {
       canvas.remove()
+      endScreen.classList.remove('hidden')
+      endScreen.classList.add('active')
     }, 1000)
+
+    setTimeout(() => {
+      window.location.reload();
+    }, 5000)
   })
 
   let colorButtons = document.querySelectorAll('.color-button')
