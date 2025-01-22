@@ -1,32 +1,41 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Titre</title>
-  <link rel="stylesheet" href="/assets/styles/index.css">
+  <link rel="stylesheet" href="/assets/styles/reset.css">
+  <link rel="stylesheet" href="/assets/styles/styles.css">
   <script src="/assets/js/canvas.js" defer></script>
   <script src="/assets/js/controls.js" defer></script>
 </head>
+
 <body>
   <div class="start-screen" id="startScreen">
     <h1>L'Atelier des Univers</h1>
     <button id="startButton">Start</button>
   </div>
-  <div class="controls">
-    <button id="stopButton">Stop</button>
-    <button id="resetButton">Clear</button>
-  </div>
-  <div class="colors-container" id="colorsContainer">
-    <button class="color-button red" id="redButton">Rouge</button>
-    <button class="color-button orange" id="orangeButton">Orange</button>
-    <button class="color-button yellow" id="yellowButton">Jaune</button>
-    <button class="color-button green" id="greenButton">Vert</button>
-    <button class="color-button blue" id="blueButton">Bleu</button>
-    <button class="color-button indigo" id="indigoButton">Indigo</button>
-    <button class="color-button purple" id="purpleButton">Violet</button>
+  <div class="controls-container" id="controlsContainer">
+    <div class="colors-container hidden" id="colorsContainer">
+      <button class="color-button red" id="redButton">Rouge</button>
+      <button class="color-button orange" id="orangeButton">Orange</button>
+      <button class="color-button yellow" id="yellowButton">Jaune</button>
+      <button class="color-button green" id="greenButton">Vert</button>
+      <button class="color-button blue" id="blueButton">Bleu</button>
+      <button class="color-button indigo" id="indigoButton">Indigo</button>
+      <button class="color-button purple" id="purpleButton">Violet</button>
+    </div>
+    <div class="global-controls-container hidden" id="globalControlsContainer">
+      <button id="stopButton">Stop</button>
+      <button class="reset-button">Clear</button>
+    </div>
   </div>
   <canvas id="canv" class="canvas">
   </canvas>
+  <div class="end-screen" id="endScreen">
+    <button class="reset-button">Clear</button>
+  </div>
 </body>
+
 </html>

@@ -3,6 +3,7 @@ body {
   margin: 0;
   overflow: hidden;
   height: 100vh;
+  background-color: black;
 }
 
 .canvas {
@@ -11,6 +12,9 @@ body {
   cursor: move;
   position: relative;
   z-index: 1;
+}
+.canvas.canvas-black {
+  background-image: radial-gradient(ellipse farthest-corner at center top, rgb(0, 0, 0) 0%, hsl(255, 100%, 1%) 100%);
 }
 .canvas.canvas-red {
   background-image: radial-gradient(ellipse farthest-corner at center top, rgb(255, 0, 0) 0%, hsl(255, 100%, 1%) 100%);
@@ -59,10 +63,13 @@ button {
   transition: 1s ease-in-out;
 }
 
-.controls {
-  top: 0;
+.controls-container {
   position: absolute;
   z-index: 999;
+  position: absolute;
+  z-index: 990;
+  bottom: 5rem;
+  width: 100%;
 }
 
 .colors-container {
@@ -70,16 +77,20 @@ button {
   justify-content: center;
   gap: 1rem;
   align-items: center;
-  position: absolute;
-  z-index: 990;
-  bottom: 5rem;
-  width: 100%;
 }
 .colors-container .color-button {
   padding: 1rem 2rem;
   font-size: 1rem;
 }
 
+.global-controls-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+}
+
 .hidden {
   opacity: 0;
+  transition: 0.3s ease-in-out;
 }/*# sourceMappingURL=styles.css.map */
