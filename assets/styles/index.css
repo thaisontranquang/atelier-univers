@@ -48,52 +48,65 @@ table {
   border-spacing: 0;
 }
 
+* {
+  font-family: "Raleway", sans-serif;
+  transition: 0.3s ease-in-out;
+}
+
 body {
   width: 100%;
   margin: 0;
   overflow: hidden;
   height: 100vh;
-  background-color: black;
+  background-color: #2B2B2B;
 }
 
 .h1 {
   font-size: 7rem;
   font-weight: 700;
   font-family: "Fraunces", sans-serif;
-  color: #fff;
+  color: rgb(254, 254, 254);
+  margin: 2rem 0;
+}
+
+.h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  font-family: "Fraunces", sans-serif;
+  color: rgb(254, 254, 254);
   margin: 2rem 0;
 }
 
 .canvas {
   height: 100%;
-  background-image: radial-gradient(ellipse farthest-corner at center top, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);
+  background: radial-gradient(ellipse farthest-corner at center top, rgb(254, 254, 254) 0%, rgb(254, 254, 254) 100%);
   cursor: move;
   position: relative;
   z-index: 1;
 }
 .canvas.canvas-black {
-  background-image: radial-gradient(ellipse farthest-corner at center top, rgb(0, 0, 0) 0%, hsl(255, 100%, 1%) 100%);
+  background: radial-gradient(ellipse farthest-corner at center top, rgb(0, 0, 0) 0%, hsl(255, 100%, 1%) 100%);
 }
 .canvas.canvas-red {
-  background-image: radial-gradient(ellipse farthest-corner at center top, rgb(255, 0, 0) 0%, hsl(255, 100%, 1%) 100%);
+  background: radial-gradient(ellipse farthest-corner at center top, rgb(255, 0, 0) 0%, hsl(255, 100%, 1%) 100%);
 }
 .canvas.canvas-orange {
-  background-image: radial-gradient(ellipse farthest-corner at center top, rgb(255, 89, 0) 0%, hsl(255, 100%, 1%) 100%);
+  background: radial-gradient(ellipse farthest-corner at center top, rgb(255, 89, 0) 0%, hsl(255, 100%, 1%) 100%);
 }
 .canvas.canvas-yellow {
-  background-image: radial-gradient(ellipse farthest-corner at center top, rgb(234, 182, 11) 0%, hsl(255, 100%, 1%) 100%);
+  background: radial-gradient(ellipse farthest-corner at center top, rgb(234, 182, 11) 0%, hsl(255, 100%, 1%) 100%);
 }
 .canvas.canvas-green {
-  background-image: radial-gradient(ellipse farthest-corner at center top, rgb(46, 153, 0) 0%, hsl(255, 100%, 1%) 100%);
+  background: radial-gradient(ellipse farthest-corner at center top, rgb(46, 153, 0) 0%, hsl(255, 100%, 1%) 100%);
 }
 .canvas.canvas-blue {
-  background-image: radial-gradient(ellipse farthest-corner at center top, rgb(0, 15, 153) 0%, hsl(255, 100%, 1%) 100%);
+  background: radial-gradient(ellipse farthest-corner at center top, rgb(0, 15, 153) 0%, hsl(255, 100%, 1%) 100%);
 }
 .canvas.canvas-indigo {
-  background-image: radial-gradient(ellipse farthest-corner at center top, rgb(103, 3, 197) 0%, hsl(255, 100%, 1%) 100%);
+  background: radial-gradient(ellipse farthest-corner at center top, rgb(103, 3, 197) 0%, hsl(255, 100%, 1%) 100%);
 }
 .canvas.canvas-purple {
-  background-image: radial-gradient(ellipse farthest-corner at center top, rgb(216, 0, 220) 0%, hsl(255, 100%, 1%) 100%);
+  background: radial-gradient(ellipse farthest-corner at center top, rgb(216, 0, 220) 0%, hsl(255, 100%, 1%) 100%);
 }
 
 button {
@@ -104,6 +117,16 @@ button {
   outline: unset;
   box-shadow: unset;
   border-radius: 2rem;
+  font-weight: 500;
+  background: unset;
+  color: rgb(254, 254, 254);
+}
+
+.btn-primary {
+  background-color: rgba(254, 254, 254, 0.8);
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+  color: #2B2B2B;
 }
 
 .start-screen {
@@ -112,8 +135,8 @@ button {
   justify-content: center;
   align-items: center;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
-  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: rgb(254, 254, 254);
   font-size: 2em;
   position: absolute;
   z-index: 999;
@@ -128,7 +151,7 @@ button {
   align-items: center;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.3);
-  color: white;
+  color: rgb(254, 254, 254);
   font-size: 2em;
   position: absolute;
   z-index: 0;
@@ -145,7 +168,7 @@ button {
   z-index: 999;
   position: absolute;
   z-index: 990;
-  bottom: 5rem;
+  bottom: 2rem;
   width: 100%;
 }
 
@@ -156,18 +179,289 @@ button {
   align-items: center;
 }
 .colors-container .color-button {
+  cursor: pointer;
   padding: 1rem 2rem;
   font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  gap: 1rem;
+}
+.colors-container .color-button div {
+  width: 60px;
+  height: 60px;
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+  border-radius: 100%;
+}
+.colors-container .color-button .color {
+  text-align: center;
+  color: rgb(254, 254, 254);
+  font-weight: 600;
+  font-family: "Raleway", sans-serif;
+}
+.colors-container .red div {
+  background: rgba(255, 0, 0, 0.6);
+}
+.colors-container .orange div {
+  background: rgba(255, 89, 0, 0.6);
+}
+.colors-container .yellow div {
+  background: rgba(234, 182, 11, 0.6);
+}
+.colors-container .green div {
+  background: rgba(46, 153, 0, 0.6);
+}
+.colors-container .blue div {
+  background: rgba(0, 15, 153, 0.6);
+}
+.colors-container .indigo div {
+  background: rgba(103, 3, 197, 0.6);
+}
+.colors-container .purple div {
+  background: rgba(216, 0, 220, 0.6);
 }
 
 .global-controls-container {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 0.5rem;
   align-items: center;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 999;
+}
+.global-controls-container .btn-primary {
+  background-color: rgba(43, 43, 43, 0.6);
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+  color: rgb(254, 254, 254);
+}
+.global-controls-container .btn-secondary {
+  font-size: 0.875rem;
 }
 
 .hidden {
   opacity: 0;
   transition: 0.3s ease-in-out;
+}
+
+.text {
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 18px;
+  text-align: center;
+}
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces/Fraunces9ptSoft-Bold.woff2") format("woff2"), url("/assets/fonts/Fraunces/Fraunces9ptSoft-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces/Fraunces9ptSoft-Regular.woff2") format("woff2"), url("/assets/fonts/Fraunces/Fraunces9ptSoft-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces/Fraunces9ptSoft-SemiBold.woff2") format("woff2"), url("/assets/fonts/Fraunces/Fraunces9ptSoft-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces/Fraunces9ptSoft-BlackItalic.woff2") format("woff2"), url("/assets/fonts/Fraunces/Fraunces9ptSoft-BlackItalic.woff") format("woff");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces/Fraunces9ptSoft-Black.woff2") format("woff2"), url("/assets/fonts/Fraunces/Fraunces9ptSoft-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces/Fraunces9ptSoft-ThinItalic.woff2") format("woff2"), url("/assets/fonts/Fraunces/Fraunces9ptSoft-ThinItalic.woff") format("woff");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces/Fraunces9ptSoft-Thin.woff2") format("woff2"), url("/assets/fonts/Fraunces/Fraunces9ptSoft-Thin.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces/Fraunces9ptSoft-SemiBoldItalic.woff2") format("woff2"), url("/assets/fonts/Fraunces/Fraunces9ptSoft-SemiBoldItalic.woff") format("woff");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces/Fraunces9ptSoft-Light.woff2") format("woff2"), url("/assets/fonts/Fraunces/Fraunces9ptSoft-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces/Fraunces9ptSoft-BoldItalic.woff2") format("woff2"), url("/assets/fonts/Fraunces/Fraunces9ptSoft-BoldItalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces/Fraunces9ptSoft-LightItalic.woff2") format("woff2"), url("/assets/fonts/Fraunces/Fraunces9ptSoft-LightItalic.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces/Fraunces9ptSoft-Italic.woff2") format("woff2"), url("/assets/fonts/Fraunces/Fraunces9ptSoft-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("/assets/fonts/Raleway/Raleway-BoldItalic.woff2") format("woff2"), url("/assets/fonts/Raleway/Raleway-BoldItalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("/assets/fonts/Raleway/Raleway-Bold.woff2") format("woff2"), url("/assets/fonts/Raleway/Raleway-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("/assets/fonts/Raleway/Raleway-ExtraBold.woff2") format("woff2"), url("/assets/fonts/Raleway/Raleway-ExtraBold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("/assets/fonts/Raleway/Raleway-BlackItalic.woff2") format("woff2"), url("/assets/fonts/Raleway/Raleway-BlackItalic.woff") format("woff");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("/assets/fonts/Raleway/Raleway-Black.woff2") format("woff2"), url("/assets/fonts/Raleway/Raleway-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("/assets/fonts/Raleway/Raleway-Medium.woff2") format("woff2"), url("/assets/fonts/Raleway/Raleway-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("/assets/fonts/Raleway/Raleway-Italic.woff2") format("woff2"), url("/assets/fonts/Raleway/Raleway-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("/assets/fonts/Raleway/Raleway-ExtraLightItalic.woff2") format("woff2"), url("/assets/fonts/Raleway/Raleway-ExtraLightItalic.woff") format("woff");
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("/assets/fonts/Raleway/Raleway-ExtraBoldItalic.woff2") format("woff2"), url("/assets/fonts/Raleway/Raleway-ExtraBoldItalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("/assets/fonts/Raleway/Raleway-LightItalic.woff2") format("woff2"), url("/assets/fonts/Raleway/Raleway-LightItalic.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("/assets/fonts/Raleway/Raleway-ExtraLight.woff2") format("woff2"), url("/assets/fonts/Raleway/Raleway-ExtraLight.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("/assets/fonts/Raleway/Raleway-Light.woff2") format("woff2"), url("/assets/fonts/Raleway/Raleway-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("/assets/fonts/Raleway/Raleway-Thin.woff2") format("woff2"), url("/assets/fonts/Raleway/Raleway-Thin.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("/assets/fonts/Raleway/Raleway-SemiBoldItalic.woff2") format("woff2"), url("/assets/fonts/Raleway/Raleway-SemiBoldItalic.woff") format("woff");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("/assets/fonts/Raleway/Raleway-SemiBold.woff2") format("woff2"), url("/assets/fonts/Raleway/Raleway-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("/assets/fonts/Raleway/Raleway-ThinItalic.woff2") format("woff2"), url("/assets/fonts/Raleway/Raleway-ThinItalic.woff") format("woff");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("/assets/fonts/Raleway/Raleway-MediumItalic.woff2") format("woff2"), url("/assets/fonts/Raleway/Raleway-MediumItalic.woff") format("woff");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("/assets/fonts/Raleway/Raleway-Regular.woff2") format("woff2"), url("/assets/fonts/Raleway/Raleway-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }/*# sourceMappingURL=index.css.map */

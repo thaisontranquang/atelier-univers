@@ -4,8 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Titre</title>
+  <title>L'Atelier des Univers</title>
   <link rel="stylesheet" href="/assets/styles/reset.css">
+  <link rel="stylesheet" href="/assets/styles/fonts.css">
   <link rel="stylesheet" href="/assets/styles/styles.css">
   <script src="/assets/js/canvas.js" defer></script>
   <script src="/assets/js/controls.js" defer></script>
@@ -14,28 +15,52 @@
 <body>
   <div class="start-screen" id="startScreen">
     <h1 class="h1">L'Atelier des Univers</h1>
-    <button id="startButton">Start</button>
+    <button class="btn-primary" id="startButton">Commencer l'expérience</button>
   </div>
   <div class="controls-container" id="controlsContainer">
     <div class="colors-container hidden" id="colorsContainer">
-      <button class="color-button red" id="redButton">Rouge</button>
-      <button class="color-button orange" id="orangeButton">Orange</button>
-      <button class="color-button yellow" id="yellowButton">Jaune</button>
-      <button class="color-button green" id="greenButton">Vert</button>
-      <button class="color-button blue" id="blueButton">Bleu</button>
-      <button class="color-button indigo" id="indigoButton">Indigo</button>
-      <button class="color-button purple" id="purpleButton">Violet</button>
+      <div class="color-button red" id="redButton">
+        <div></div>
+        <span class="color">Rouge</span>
+      </div>
+      <div class="color-button orange" id="orangeButton">
+        <div></div>
+        <span class="color">Orange</span>
+      </div>
+      <div class="color-button yellow" id="yellowButton">
+        <div></div>
+        <span class="color">Jaune</span>
+      </div>
+      <div class="color-button green" id="greenButton">
+        <div></div>
+        <span class="color">Vert</span>
+      </div>
+      <div class="color-button blue" id="blueButton">
+        <div></div>
+        <span class="color">Bleu</span>
+      </div>
+      <div class="color-button indigo" id="indigoButton">
+        <div></div>
+        <span class="color">Indigo</span>
+      </div>
+      <div class="color-button purple" id="purpleButton">
+        <div></div>
+        <span class="color">Violet</span>
+      </div>
     </div>
-    <div class="global-controls-container hidden" id="globalControlsContainer">
-      <button id="stopButton">Stop</button>
-      <button class="reset-button">Clear</button>
-    </div>
+  </div>
+  <div class="global-controls-container hidden" id="globalControlsContainer">
+    <button class="btn-primary" id="stopButton">Terminer l'expérience</button>
+    <button class="reset-button btn-secondary">Réinitialiser l'univers</button>
   </div>
   <canvas id="canv" class="canvas">
   </canvas>
   <div class="end-screen hidden" id="endScreen">
     <h2 class="h2">L'Atelier des Univers</h2>
-    <button class="reset-button">Clear</button>
+    <p class="text">
+      Vous voilà déjà à la fin de ce voyage. <br/>
+      Tout univers est éphémère, soumis au cycle du renouveau. Lorsque le vôtre atteindra son terme, un nouveau créateur entrera en scène, prêt à réécrire l’histoire laissée derrière vous.
+    </p>
   </div>
 </body>
 

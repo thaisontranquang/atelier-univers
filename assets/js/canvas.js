@@ -1,22 +1,22 @@
-var num = 200;
-var w = window.innerWidth;
-var h = window.innerHeight;
-var max = 100;
-var _x = 0;
-var _y = 0;
-var _z = 150;
-var dtr = function(d) {
+let num = 500;
+let w = window.innerWidth;
+let h = window.innerHeight;
+let max = 200;
+let _x = 0;
+let _y = 0;
+let _z = -100;
+let dtr = function(d) {
   return d * Math.PI / 180;
 };
 
-var rnd = function() {
+let rnd = function() {
   return Math.sin(Math.floor(Math.random() * 360) * Math.PI / 180);
 };
-var dist = function(p1, p2, p3) {
+let dist = function(p1, p2, p3) {
   return Math.sqrt(Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2) + Math.pow(p2.z - p1.z, 2));
 };
 
-var cam = {
+let cam = {
   obj: { x: _x,y: _y, z: _z},
   dest: {x: 0, y: 0,z: 1},
   dist: {x: 0,y: 0,z: 200},
@@ -34,7 +34,7 @@ var cam = {
   }
 };
 
-var trans = {
+let trans = {
   parts: {
     sz: function(p, sz) {
       return {
@@ -114,7 +114,7 @@ var trans = {
     };
   },
   steps: function(_obj_, sz, rot, pos, disp) {
-    var _args = trans.parts.sz(_obj_, sz);
+    let _args = trans.parts.sz(_obj_, sz);
     _args = trans.parts.rot.x(_args, rot);
     _args = trans.parts.rot.y(_args, rot);
     _args = trans.parts.rot.z(_args, rot);
@@ -130,7 +130,7 @@ var trans = {
 
 (function() {
   "use strict";
-  var threeD = function(param) {
+  let threeD = function(param) {
     this.transIn = {};
     this.transOut = {};
     this.transIn.vtx = (param.vtx);
@@ -149,7 +149,7 @@ var trans = {
     );
   };
 
-  var Build = function() {
+  let Build = function() {
     this.vel = 0.04;
     this.lim = 360;
     this.diff = 200;
@@ -165,11 +165,11 @@ var trans = {
     this.canvas.height = window.innerHeight;
     this.$ = canv.getContext("2d");
     this.$.globalCompositeOperation = 'source-over';
-    this.varr = [];
+    this.letr = [];
     this.dist = [];
     this.calc = [];
 
-    for (var i = 0, len = num; i < len; i++) {
+    for (let i = 0, len = num; i < len; i++) {
       this.add();
     }
 
@@ -178,7 +178,7 @@ var trans = {
   };
 
   Build.prototype.add = function() {
-    this.varr.push(new threeD({
+    this.letr.push(new threeD({
       vtx: {x: rnd(),y: rnd(),z: rnd()},
       sz: {x: 0,y: 0,z: 0},
       rot: {x: 20,y: -20,z: 0},
@@ -207,31 +207,31 @@ var trans = {
     this.rotObj.y += 0.1;
     this.rotObj.z += 0.1;
 
-    for (var i = 0; i < this.varr.length; i++) {
-      for (var val in this.calc[i]) {
+    for (let i = 0; i < this.letr.length; i++) {
+      for (let val in this.calc[i]) {
         if (this.calc[i].hasOwnProperty(val)) {
           this.calc[i][val] += this.vel;
           if (this.calc[i][val] > this.lim) this.calc[i][val] = 0;
         }
       }
 
-      this.varr[i].transIn.pos = {
+      this.letr[i].transIn.pos = {
         x: this.diff * Math.cos(this.calc[i].x * Math.PI / 180),
         y: this.diff * Math.sin(this.calc[i].y * Math.PI / 180),
         z: this.diff * Math.sin(this.calc[i].z * Math.PI / 180)
       };
-      this.varr[i].transIn.rot = this.rotObj;
-      this.varr[i].transIn.sz = this.objSz;
-      this.varr[i].vupd();
-      if (this.varr[i].transOut.p < 0) continue;
-      var g = this.$.createRadialGradient(this.varr[i].transOut.x, this.varr[i].transOut.y, this.varr[i].transOut.p, this.varr[i].transOut.x, this.varr[i].transOut.y, this.varr[i].transOut.p*2);
+      this.letr[i].transIn.rot = this.rotObj;
+      this.letr[i].transIn.sz = this.objSz;
+      this.letr[i].vupd();
+      if (this.letr[i].transOut.p < 0) continue;
+      let g = this.$.createRadialGradient(this.letr[i].transOut.x, this.letr[i].transOut.y, this.letr[i].transOut.p, this.letr[i].transOut.x, this.letr[i].transOut.y, this.letr[i].transOut.p*2);
       this.$.globalCompositeOperation = 'lighter';
        g.addColorStop(0, 'hsla(255, 255%, 255%, 1)');
         g.addColorStop(.5, 'hsla('+(i+2)+',85%, 40%,1)');
         g.addColorStop(1,'hsla('+(i)+',85%, 40%,.5)');
         this.$.fillStyle = g;
       this.$.beginPath();
-      this.$.arc(this.varr[i].transOut.x, this.varr[i].transOut.y, this.varr[i].transOut.p * 2, 0, Math.PI * 2, false);
+      this.$.arc(this.letr[i].transOut.x, this.letr[i].transOut.y, this.letr[i].transOut.p * 2, 0, Math.PI * 2, false);
       this.$.fill();
       this.$.closePath();
     }
@@ -243,7 +243,7 @@ var trans = {
         window.setTimeout(callback, 1000 / 60);
       };
     })();
-    var anim = function() {
+    let anim = function() {
       this.upd();
       this.draw();
       window.requestAnimationFrame(anim);
@@ -264,21 +264,17 @@ var trans = {
       this.toY = (e.touches[0].clientY - this.canvas.height / 2) * 0.8;
     }.bind(this));
     this.canvas.addEventListener('mousedown', function(e) {
-      for (var i = 0; i < 100; i++) {
+      for (let i = 0; i < 500; i++) {
         this.add();
       }
     }.bind(this));
     this.canvas.addEventListener('touchstart', function(e) {
       e.preventDefault();
-      for (var i = 0; i < 100; i++) {
+      for (let i = 0; i < 100; i++) {
         this.add();
       }
     }.bind(this));
   };
-  var app = new Build();
+  let app = new Build();
   app.run();
 })();
-window.addEventListener('resize',function(){
- this.canvas.width = window.innerWidth;
- this.canvas.height = window.innerHeight;
-}, false);

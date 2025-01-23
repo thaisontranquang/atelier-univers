@@ -1,56 +1,85 @@
+* {
+  font-family: 'Raleway', sans-serif;
+  transition: .3s ease-in-out;
+}
+
 body {
   width: 100%;
   margin: 0;
   overflow: hidden;
   height: 100vh;
-  background-color: black;
+  background-color: #2B2B2B;
 }
 
 .h1 {
   font-size: 7rem;
   font-weight: 700;
   font-family: 'Fraunces', sans-serif;
-  color: #fff;
+  color: rgb(254, 254, 254);
+  margin: 2rem 0;
+}
+
+.h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  font-family: 'Fraunces', sans-serif;
+  color: rgb(254, 254, 254);
   margin: 2rem 0;
 }
 
 .canvas {
   height: 100%;
-  background-image: radial-gradient(ellipse farthest-corner at center top, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);
+  background: radial-gradient(ellipse farthest-corner at center top, rgb(254, 254, 254) 0%, rgb(254, 254, 254) 100%);
   cursor: move;
   position: relative;
   z-index: 1;
 
   &.canvas-black {
-    background-image: radial-gradient(ellipse farthest-corner at center top, rgb(0, 0, 0) 0%, hsla(255, 100%, 1%, 1) 100%);
+    background: radial-gradient(ellipse farthest-corner at center top, rgb(0, 0, 0) 0%, hsla(255, 100%, 1%, 1) 100%);
+    background-size: 200% 200%;
+    animation: animateGradient 10s ease infinite;
   }
 
   &.canvas-red {
-    background-image: radial-gradient(ellipse farthest-corner at center top, rgb(255, 0, 0) 0%, hsla(255, 100%, 1%, 1) 100%);
+    background: radial-gradient(ellipse farthest-corner at center top, rgb(255, 0, 0) 0%, hsla(255, 100%, 1%, 1) 100%);
+    background-size: 200% 200%;
+    animation: animateGradient 10s ease infinite;
   }
 
   &.canvas-orange {
-    background-image: radial-gradient(ellipse farthest-corner at center top, rgb(255, 89, 0) 0%, hsla(255, 100%, 1%, 1) 100%);
+    background: radial-gradient(ellipse farthest-corner at center top, rgb(255, 89, 0) 0%, hsla(255, 100%, 1%, 1) 100%);
+    background-size: 200% 200%;
+    animation: animateGradient 10s ease infinite;
   }
 
   &.canvas-yellow {
-    background-image: radial-gradient(ellipse farthest-corner at center top, rgb(234, 182, 11) 0%, hsla(255, 100%, 1%, 1) 100%);
+    background: radial-gradient(ellipse farthest-corner at center top, rgb(234, 182, 11) 0%, hsla(255, 100%, 1%, 1) 100%);
+    background-size: 200% 200%;
+    animation: animateGradient 10s ease infinite;
   }
 
   &.canvas-green {
-    background-image: radial-gradient(ellipse farthest-corner at center top, rgb(46, 153, 0) 0%, hsla(255, 100%, 1%, 1) 100%);
+    background: radial-gradient(ellipse farthest-corner at center top, rgb(46, 153, 0) 0%, hsla(255, 100%, 1%, 1) 100%);
+    background-size: 200% 200%;
+    animation: animateGradient 10s ease infinite;
   }
 
   &.canvas-blue {
-    background-image: radial-gradient(ellipse farthest-corner at center top, rgb(0, 15, 153) 0%, hsla(255, 100%, 1%, 1) 100%);
+    background: radial-gradient(ellipse farthest-corner at center top, rgb(0, 15, 153) 0%, hsla(255, 100%, 1%, 1) 100%);
+    background-size: 200% 200%;
+    animation: animateGradient 10s ease infinite;
   }
 
   &.canvas-indigo {
-    background-image: radial-gradient(ellipse farthest-corner at center top, rgb(103, 3, 197) 0%, hsla(255, 100%, 1%, 1) 100%);
+    background: radial-gradient(ellipse farthest-corner at center top, rgb(103, 3, 197) 0%, hsla(255, 100%, 1%, 1) 100%);
+    background-size: 200% 200%;
+    animation: animateGradient 10s ease infinite;
   }
 
   &.canvas-purple {
-    background-image: radial-gradient(ellipse farthest-corner at center top, rgb(216, 0, 220) 0%, hsla(255, 100%, 1%, 1) 100%);
+    background: radial-gradient(ellipse farthest-corner at center top, rgb(216, 0, 220) 0%, hsla(255, 100%, 1%, 1) 100%);
+    background-size: 200% 200%;
+    animation: animateGradient 10s ease infinite;
   }
 }
 
@@ -62,6 +91,15 @@ button {
   outline: unset;
   box-shadow: unset;
   border-radius: 2rem;
+  font-weight: 500;
+  background: unset;
+  color: rgb(254, 254, 254);
+}
+
+.btn-primary {
+  background-color: rgb(254, 254, 254, 0.8);
+  backdrop-filter: blur(3px);
+  color: #2B2B2B;
 }
 
 .start-screen {
@@ -70,8 +108,8 @@ button {
   justify-content: center;
   align-items: center;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
-  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: rgb(254, 254, 254);
   font-size: 2em;
   position: absolute;
   z-index: 999;
@@ -86,7 +124,7 @@ button {
   align-items: center;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.3);
-  color: white;
+  color: rgb(254, 254, 254);
   font-size: 2em;
   position: absolute;
   z-index: 0;
@@ -103,7 +141,7 @@ button {
   z-index: 999;
   position: absolute;
   z-index: 990;
-  bottom: 5rem;
+  bottom: 2rem;
   width: 100%;
 }
 
@@ -114,16 +152,92 @@ button {
   align-items: center;
 
   .color-button {
+    cursor: pointer;
     padding: 1rem 2rem;
     font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    gap: 1rem;
+
+    div {
+      width: 60px;
+      height: 60px;
+      backdrop-filter: blur(3px);
+      border-radius: 100%;
+    }
+
+    .color {
+      text-align: center;
+      color: rgb(254, 254, 254);
+      font-weight: 600;
+      font-family: 'Raleway', sans-serif;
+    }
+  }
+
+  .red {
+    div {
+      background: rgb(255, 0, 0, .6);
+    }
+  }
+
+  .orange {
+    div {
+      background: rgb(255, 89, 0, .6);
+    }
+  }
+
+  .yellow {
+    div {
+      background: rgb(234, 182, 11, .6);
+    }
+  }
+
+  .green {
+    div {
+      background: rgb(46, 153, 0, .6);
+    }
+  }
+
+  .blue {
+    div {
+      background: rgb(0, 15, 153, .6);
+    }
+  }
+
+  .indigo {
+    div {
+      background: rgb(103, 3, 197, .6);
+    }
+  }
+
+  .purple {
+    div {
+      background: rgb(216, 0, 220, .6);
+    }
   }
 }
 
 .global-controls-container {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: .5rem;
   align-items: center;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 999;
+
+  .btn-primary {
+    background-color: #2B2B2B99;
+    backdrop-filter: blur(3px);
+    color: rgb(254, 254, 254);
+  }
+
+  .btn-secondary {
+    font-size: .875rem;
+  }
 }
 
 .hidden {
@@ -131,3 +245,27 @@ button {
   transition: .3s ease-in-out;
 }
 
+.text {
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 18px;
+  text-align: center;
+}
+
+@keyframes animateGradient {
+  0% {
+    background-position: 0% 0%;
+  }
+  25% {
+    background-position: 100% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}

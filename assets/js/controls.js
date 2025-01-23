@@ -1,4 +1,5 @@
 window.addEventListener('load', event => {
+
   let canvas = document.getElementById('canv')
   let startButton = document.getElementById('startButton')
   let stopButton = document.getElementById('stopButton')
@@ -7,7 +8,16 @@ window.addEventListener('load', event => {
   let endScreen = document.getElementById('endScreen')
 
   let audio = null
-  let whiteNoise = new Audio('/assets/sounds/white-8D.mp3')
+  let whiteNoise = new Audio('/assets/sounds/white-8D.mp3');
+  whiteNoise.currentTime = 0
+  whiteNoise.loop = true;
+
+  whiteNoise.addEventListener('ended', () => {
+    whiteNoise.currentTime = 0
+    whiteNoise.play()
+  })
+
+  whiteNoise.play()
 
   startButton.addEventListener('click', function () {
     startScreen.classList.add('hidden')
@@ -25,17 +35,19 @@ window.addEventListener('load', event => {
 
   stopButton.addEventListener('click', function () {
     document.getElementById('controlsContainer').classList.add('hidden')
+    document.getElementById('globalControlsContainer').classList.add('hidden')
     canvas.classList.add('hidden')
 
     if (audio) {
-      audio.pause()
-      audio.currentTime = 0
+      fadeOut(audio, 1000);  // Fade out the audio
     }
 
-    whiteNoise.currentTime = 0
-    whiteNoise.play()
+    fadeOut(whiteNoise, 1000);
 
     setTimeout(() => {
+      whiteNoise.currentTime = 0;
+      whiteNoise.play();
+
       canvas.remove()
       endScreen.classList.remove('hidden')
       endScreen.classList.add('active')
@@ -60,19 +72,49 @@ window.addEventListener('load', event => {
       let colorClass = 'canvas-' + button.id.replace('Button', '').toLowerCase()
       canvas.classList.add(colorClass)
 
-      whiteNoise.pause()
-      whiteNoise.currentTime = 0
+      fadeOut(whiteNoise, 1000);
 
       let color = button.id.replace('Button', '').toLowerCase()
       let soundPath = `/assets/sounds/${color}-8D.mp3`
 
       if (audio) {
-        audio.pause()
-        audio.currentTime = 0
+        fadeOut(audio, 0);
       }
 
       audio = new Audio(soundPath)
-      audio.play()
+      audio.loop = true;
+
+      audio.addEventListener('ended', () => {
+        audio.currentTime = 0
+        audio.play()
+      })
+
+      fadeIn(audio, 1);
     })
   })
+
+  function fadeIn(audio, duration) {
+    audio.volume = 0;
+    audio.play();
+    let volumeInterval = setInterval(() => {
+      if (audio.volume < 0.95) {
+        audio.volume += 0.05;
+      } else {
+        audio.volume = 1;
+        clearInterval(volumeInterval);
+      }
+    }, duration / 20);
+  }
+
+  function fadeOut(audio, duration) {
+    let volumeInterval = setInterval(() => {
+      if (audio.volume > 0.05) {
+        audio.volume = Math.max(0, audio.volume - 0.05);
+      } else {
+        audio.volume = 0;
+        clearInterval(volumeInterval);
+        audio.pause();
+      }
+    }, duration / 20);
+  }
 })
