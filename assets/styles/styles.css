@@ -284,7 +284,7 @@ button {
 .bubbly-button:active {
   transform: scale(0.9);
   background-color: #171a6a;
-  box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
+  box-shadow: 0 2px 25px rgba(0, 21, 255, 0.2);
 }
 .bubbly-button.animate:before {
   display: block;
