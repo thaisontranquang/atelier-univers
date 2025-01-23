@@ -10,12 +10,13 @@
   <link rel="stylesheet" href="/assets/styles/styles.css">
   <script src="/assets/js/canvas.js" defer></script>
   <script src="/assets/js/controls.js" defer></script>
+  <script src="/assets/js/startButton.js" defer></script>
 </head>
 
 <body>
   <div class="start-screen" id="startScreen">
     <h1 class="h1">L'Atelier des Univers</h1>
-    <button class="btn-primary" id="startButton">Commencer l'expérience</button>
+    <button class="bubbly-button" id="startButton">Commencer l'expérience</button>
   </div>
   <div class="controls-container" id="controlsContainer">
     <div class="colors-container hidden" id="colorsContainer">
@@ -50,8 +51,8 @@
     </div>
   </div>
   <div class="global-controls-container hidden" id="globalControlsContainer">
-    <button class="btn-primary" id="stopButton">Terminer l'expérience</button>
-    <button class="reset-button btn-secondary">Réinitialiser l'univers</button>
+    <button class="btn-primary" id="stopButton" disabled>Terminer l'expérience</button>
+    <button class="reset-button btn-secondary" disabled>Réinitialiser l'univers</button>
   </div>
   <canvas id="canv" class="canvas">
   </canvas>
