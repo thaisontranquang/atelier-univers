@@ -1,6 +1,10 @@
 * {
   font-family: "Raleway", sans-serif;
   transition: 0.3s ease-in-out;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 
 body {
@@ -8,7 +12,7 @@ body {
   margin: 0;
   overflow: hidden;
   height: 100vh;
-  background-color: #2B2B2B;
+  background-color: #2b2b2b;
 }
 
 .h1 {
@@ -92,7 +96,7 @@ button {
   background-color: rgba(254, 254, 254, 0.8);
   -webkit-backdrop-filter: blur(3px);
           backdrop-filter: blur(3px);
-  color: #2B2B2B;
+  color: #2b2b2b;
 }
 
 .start-screen {

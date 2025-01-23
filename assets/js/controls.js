@@ -108,6 +108,8 @@ window.addEventListener('load', event => {
         return
       }
 
+      backgroundSound.pause();
+
       canvas.classList.remove(
         ...canvas.classList
           .toString()
