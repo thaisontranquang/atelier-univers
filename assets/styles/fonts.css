@@ -1,84 +1,210 @@
 @font-face {
   font-family: "Fraunces";
-  src: url("Fraunces9ptSoft-Bold.woff2") format("woff2"), url("Fraunces9ptSoft-Bold.woff") format("woff");
+  src: url("/assets/fonts/Fraunces/Fraunces9ptSoft-Bold.woff2") format("woff2"), url("/assets/fonts/Fraunces/Fraunces9ptSoft-Bold.woff") format("woff");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Fraunces";
-  src: url("Fraunces9ptSoft-Regular.woff2") format("woff2"), url("Fraunces9ptSoft-Regular.woff") format("woff");
+  src: url("/assets/fonts/Fraunces/Fraunces9ptSoft-Regular.woff2") format("woff2"), url("/assets/fonts/Fraunces/Fraunces9ptSoft-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Fraunces";
-  src: url("Fraunces9ptSoft-SemiBold.woff2") format("woff2"), url("Fraunces9ptSoft-SemiBold.woff") format("woff");
+  src: url("/assets/fonts/Fraunces/Fraunces9ptSoft-SemiBold.woff2") format("woff2"), url("/assets/fonts/Fraunces/Fraunces9ptSoft-SemiBold.woff") format("woff");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Fraunces";
-  src: url("Fraunces9ptSoft-BlackItalic.woff2") format("woff2"), url("Fraunces9ptSoft-BlackItalic.woff") format("woff");
+  src: url("/assets/fonts/Fraunces/Fraunces9ptSoft-BlackItalic.woff2") format("woff2"), url("/assets/fonts/Fraunces/Fraunces9ptSoft-BlackItalic.woff") format("woff");
   font-weight: 900;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Fraunces";
-  src: url("Fraunces9ptSoft-Black.woff2") format("woff2"), url("Fraunces9ptSoft-Black.woff") format("woff");
+  src: url("/assets/fonts/Fraunces/Fraunces9ptSoft-Black.woff2") format("woff2"), url("/assets/fonts/Fraunces/Fraunces9ptSoft-Black.woff") format("woff");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Fraunces";
-  src: url("Fraunces9ptSoft-ThinItalic.woff2") format("woff2"), url("Fraunces9ptSoft-ThinItalic.woff") format("woff");
+  src: url("/assets/fonts/Fraunces/Fraunces9ptSoft-ThinItalic.woff2") format("woff2"), url("/assets/fonts/Fraunces/Fraunces9ptSoft-ThinItalic.woff") format("woff");
   font-weight: 100;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Fraunces";
-  src: url("Fraunces9ptSoft-Thin.woff2") format("woff2"), url("Fraunces9ptSoft-Thin.woff") format("woff");
+  src: url("/assets/fonts/Fraunces/Fraunces9ptSoft-Thin.woff2") format("woff2"), url("/assets/fonts/Fraunces/Fraunces9ptSoft-Thin.woff") format("woff");
   font-weight: 100;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Fraunces";
-  src: url("Fraunces9ptSoft-SemiBoldItalic.woff2") format("woff2"), url("Fraunces9ptSoft-SemiBoldItalic.woff") format("woff");
+  src: url("/assets/fonts/Fraunces/Fraunces9ptSoft-SemiBoldItalic.woff2") format("woff2"), url("/assets/fonts/Fraunces/Fraunces9ptSoft-SemiBoldItalic.woff") format("woff");
   font-weight: 600;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Fraunces";
-  src: url("Fraunces9ptSoft-Light.woff2") format("woff2"), url("Fraunces9ptSoft-Light.woff") format("woff");
+  src: url("/assets/fonts/Fraunces/Fraunces9ptSoft-Light.woff2") format("woff2"), url("/assets/fonts/Fraunces/Fraunces9ptSoft-Light.woff") format("woff");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Fraunces";
-  src: url("Fraunces9ptSoft-BoldItalic.woff2") format("woff2"), url("Fraunces9ptSoft-BoldItalic.woff") format("woff");
+  src: url("/assets/fonts/Fraunces/Fraunces9ptSoft-BoldItalic.woff2") format("woff2"), url("/assets/fonts/Fraunces/Fraunces9ptSoft-BoldItalic.woff") format("woff");
   font-weight: bold;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Fraunces";
-  src: url("Fraunces9ptSoft-LightItalic.woff2") format("woff2"), url("Fraunces9ptSoft-LightItalic.woff") format("woff");
+  src: url("/assets/fonts/Fraunces/Fraunces9ptSoft-LightItalic.woff2") format("woff2"), url("/assets/fonts/Fraunces/Fraunces9ptSoft-LightItalic.woff") format("woff");
   font-weight: 300;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Fraunces";
-  src: url("Fraunces9ptSoft-Italic.woff2") format("woff2"), url("Fraunces9ptSoft-Italic.woff") format("woff");
+  src: url("/assets/fonts/Fraunces/Fraunces9ptSoft-Italic.woff2") format("woff2"), url("/assets/fonts/Fraunces/Fraunces9ptSoft-Italic.woff") format("woff");
   font-weight: normal;
   font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("/assets/fonts/Raleway/Raleway-BoldItalic.woff2") format("woff2"), url("/assets/fonts/Raleway/Raleway-BoldItalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("/assets/fonts/Raleway/Raleway-Bold.woff2") format("woff2"), url("/assets/fonts/Raleway/Raleway-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("/assets/fonts/Raleway/Raleway-ExtraBold.woff2") format("woff2"), url("/assets/fonts/Raleway/Raleway-ExtraBold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("/assets/fonts/Raleway/Raleway-BlackItalic.woff2") format("woff2"), url("/assets/fonts/Raleway/Raleway-BlackItalic.woff") format("woff");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("/assets/fonts/Raleway/Raleway-Black.woff2") format("woff2"), url("/assets/fonts/Raleway/Raleway-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("/assets/fonts/Raleway/Raleway-Medium.woff2") format("woff2"), url("/assets/fonts/Raleway/Raleway-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("/assets/fonts/Raleway/Raleway-Italic.woff2") format("woff2"), url("/assets/fonts/Raleway/Raleway-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("/assets/fonts/Raleway/Raleway-ExtraLightItalic.woff2") format("woff2"), url("/assets/fonts/Raleway/Raleway-ExtraLightItalic.woff") format("woff");
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("/assets/fonts/Raleway/Raleway-ExtraBoldItalic.woff2") format("woff2"), url("/assets/fonts/Raleway/Raleway-ExtraBoldItalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("/assets/fonts/Raleway/Raleway-LightItalic.woff2") format("woff2"), url("/assets/fonts/Raleway/Raleway-LightItalic.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("/assets/fonts/Raleway/Raleway-ExtraLight.woff2") format("woff2"), url("/assets/fonts/Raleway/Raleway-ExtraLight.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("/assets/fonts/Raleway/Raleway-Light.woff2") format("woff2"), url("/assets/fonts/Raleway/Raleway-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("/assets/fonts/Raleway/Raleway-Thin.woff2") format("woff2"), url("/assets/fonts/Raleway/Raleway-Thin.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("/assets/fonts/Raleway/Raleway-SemiBoldItalic.woff2") format("woff2"), url("/assets/fonts/Raleway/Raleway-SemiBoldItalic.woff") format("woff");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("/assets/fonts/Raleway/Raleway-SemiBold.woff2") format("woff2"), url("/assets/fonts/Raleway/Raleway-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("/assets/fonts/Raleway/Raleway-ThinItalic.woff2") format("woff2"), url("/assets/fonts/Raleway/Raleway-ThinItalic.woff") format("woff");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("/assets/fonts/Raleway/Raleway-MediumItalic.woff2") format("woff2"), url("/assets/fonts/Raleway/Raleway-MediumItalic.woff") format("woff");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("/assets/fonts/Raleway/Raleway-Regular.woff2") format("woff2"), url("/assets/fonts/Raleway/Raleway-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
   font-display: swap;
 }/*# sourceMappingURL=fonts.css.map */
