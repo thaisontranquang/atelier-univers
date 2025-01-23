@@ -15,7 +15,7 @@ window.addEventListener('load', event => {
   let clickSound = new Audio('/assets/sounds/click.mp3') // Son du clic
   let voiceOverStart = new Audio('/assets/sounds/voice-start.mp3') // Son de la voix off
   let voiceOverEnd = new Audio('/assets/sounds/voice-start.mp3') // Son de la voix off
-  let backgroundSound = new Audio('/assets/sounds/background.mp3') // Son de fond
+  let backgroundSound = new Audio('/assets/sounds/black-8D.mp3') // Son de fond
 
   // Configurer les sons
   whiteNoise.loop = true
@@ -30,21 +30,15 @@ window.addEventListener('load', event => {
 
   startButton.addEventListener('click', function () {
     fadeOut(whiteNoise, 1000)
-    // Jouer le son du clic
     clickSound.currentTime = 0
     clickSound.play()
 
-    // Jouer la voix off après un léger délai (par exemple, après le clic)
     setTimeout(() => {
       voiceOverStart.currentTime = 0
       voiceOverStart.play()
-    }, 500) // Délai de 500ms
-
-    // Jouer le son de fond après la voix off
-    voiceOverStart.addEventListener('ended', () => {
       backgroundSound.currentTime = 0
       backgroundSound.play()
-    })
+    }, 500)
 
     setTimeout(() => {
       startScreen.classList.add('hidden')
@@ -80,8 +74,10 @@ window.addEventListener('load', event => {
     fadeOut(whiteNoise, 1000)
     fadeOut(backgroundSound, 1000)
 
-    voiceOverEnd.currentTime = 0
-    voiceOverEnd.play()
+    setTimeout(() => {
+      voiceOverEnd.currentTime = 0
+      voiceOverEnd.play()
+    }, 500)
 
     setTimeout(() => {
       whiteNoise.currentTime = 0
