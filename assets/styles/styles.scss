@@ -19,7 +19,7 @@ body {
   margin: 0;
   overflow: hidden;
   height: 100vh;
-  background-color: #2b2b2b;
+  background-color: #000000;
 }
 
 .h1 {
@@ -185,11 +185,16 @@ button {
       font-weight: 600;
       font-family: 'Raleway', sans-serif;
     }
+
+    img {
+      width: 64px;
+      height: 64px;
+    }
   }
 
   .red {
     div {
-      background: rgb(255, 0, 0, 0.6);
+      background: #ff000099;
     }
   }
 

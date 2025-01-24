@@ -12,7 +12,7 @@ body {
   margin: 0;
   overflow: hidden;
   height: 100vh;
-  background-color: #2b2b2b;
+  background-color: #000000;
 }
 
 .h1 {
@@ -170,6 +170,10 @@ button {
   color: rgb(254, 254, 254);
   font-weight: 600;
   font-family: "Raleway", sans-serif;
+}
+.colors-container .color-button img {
+  width: 64px;
+  height: 64px;
 }
 .colors-container .red div {
   background: rgba(255, 0, 0, 0.6);

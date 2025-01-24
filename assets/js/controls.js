@@ -11,13 +11,11 @@ window.addEventListener('load', event => {
   whiteNoise.currentTime = 0
   whiteNoise.loop = true
 
-  // Nouveaux sons
-  let clickSound = new Audio('/assets/sounds/click.mp3') // Son du clic
-  let voiceOverStart = new Audio('/assets/sounds/voice-start.mp3') // Son de la voix off
-  let voiceOverEnd = new Audio('/assets/sounds/voice-start.mp3') // Son de la voix off
-  let backgroundSound = new Audio('/assets/sounds/black-8D.mp3') // Son de fond
+  let clickSound = new Audio('/assets/sounds/click.mp3')
+  let voiceOverStart = new Audio('/assets/sounds/voice-start.mp3')
+  let voiceOverEnd = new Audio('/assets/sounds/voice-end.mp3')
+  let backgroundSound = new Audio('/assets/sounds/black-8D.mp3')
 
-  // Configurer les sons
   whiteNoise.loop = true
   backgroundSound.loop = true
 
@@ -34,8 +32,8 @@ window.addEventListener('load', event => {
     clickSound.play()
 
     setTimeout(() => {
-      voiceOverStart.currentTime = 0
-      voiceOverStart.play()
+      // voiceOverStart.currentTime = 0
+      // voiceOverStart.play()
       backgroundSound.currentTime = 0
       backgroundSound.play()
     }, 500)
@@ -102,44 +100,80 @@ window.addEventListener('load', event => {
 
   let colorButtons = document.querySelectorAll('.color-button')
 
-  colorButtons.forEach(button => {
-    button.addEventListener('click', function () {
-      if (!voiceOverStartEnded) {
-        return
-      }
+  let activeUniverseSound = null
 
+  let isTransitioning = false; // Verrou pour éviter les actions simultanées
+
+  colorButtons.forEach(button => {
+    button.addEventListener('click', async function () {
+      if (isTransitioning) {
+        return; // Ignorer si une transition est déjà en cours
+      }
+      isTransitioning = true; // Activer le verrou
+
+      // Arrêter le son de fond
       backgroundSound.pause();
 
+      // Supprimer les anciennes classes de couleur du canvas
       canvas.classList.remove(
         ...canvas.classList
           .toString()
           .split(' ')
           .filter(className => className.startsWith('canvas-'))
-      )
+      );
 
-      let colorClass = 'canvas-' + button.id.replace('Button', '').toLowerCase()
-      canvas.classList.add(colorClass)
+      // Ajouter la nouvelle classe de couleur
+      let colorClass = 'canvas-' + button.id.replace('Button', '').toLowerCase();
+      canvas.classList.add(colorClass);
 
-      fadeOut(whiteNoise, 1000)
+      // Arrêter le bruit blanc avec fondu
+      fadeOut(whiteNoise, 2000);
+      whiteNoise.pause();
 
-      let color = button.id.replace('Button', '').toLowerCase()
-      let soundPath = `/assets/sounds/${color}-8D.mp3`
+      // Récupérer les chemins des sons
+      let color = button.id.replace('Button', '').toLowerCase();
+      let soundPath = `/assets/sounds/${color}-8D.mp3`;
+      let universeSoundPath = `/assets/sounds/universes/univers-${color}.mp3`;
 
-      if (audio) {
-        fadeOut(audio, 0)
+      // Assurer que le son d'univers précédent est terminé
+      if (activeUniverseSound && !activeUniverseSound.ended) {
+        isTransitioning = false; // Réinitialiser le verrou
+        return;
       }
 
-      audio = new Audio(soundPath)
-      audio.loop = true
+      // Transition du son principal
+      if (audio) {
+        await fadeOut(audio, 1000); // Attendre la fin du fondu
+      }
+      audio = new Audio(soundPath);
+      audio.loop = true;
 
       audio.addEventListener('ended', () => {
-        audio.currentTime = 0
-        audio.play()
-      })
+        audio.currentTime = 0;
+        audio.play();
+      });
 
-      fadeIn(audio, 1)
-    })
-  })
+      fadeIn(audio, 1000);
+
+      // Gestion des sons "univers"
+      if (activeUniverseSound) {
+        fadeOut(activeUniverseSound, 0);
+      }
+      activeUniverseSound = new Audio(universeSoundPath);
+      activeUniverseSound.addEventListener('ended', () => {
+        activeUniverseSound = null; // Réinitialise lorsque le son se termine
+      });
+
+      fadeIn(activeUniverseSound, 1);
+      activeUniverseSound.play();
+
+      // Libérer le verrou après un délai
+      setTimeout(() => {
+        isTransitioning = false;
+      }, 2000); // Ajustez la durée en fonction du temps nécessaire pour stabiliser la transition
+    });
+  });
+
 
   function fadeIn(audio, duration) {
     audio.volume = 0

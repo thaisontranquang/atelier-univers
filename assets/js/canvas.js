@@ -251,6 +251,9 @@ let trans = {
     window.requestAnimationFrame(anim);
   };
 
+  let interactionCount = 0; // Compteur d'interactions
+  const maxInteractions = 50; // Limite des interactions
+
   Build.prototype.run = function() {
     this.anim();
 
@@ -258,23 +261,33 @@ let trans = {
       this.toX = (e.clientX - this.canvas.width / 2) * -0.8;
       this.toY = (e.clientY - this.canvas.height / 2) * 0.8;
     }.bind(this));
-    this.canvas.addEventListener('touchmove',function(e){
+
+    this.canvas.addEventListener('touchmove', function(e) {
       e.preventDefault();
       this.toX = (e.touches[0].clientX - this.canvas.width / 2) * -0.8;
       this.toY = (e.touches[0].clientY - this.canvas.height / 2) * 0.8;
     }.bind(this));
+
     this.canvas.addEventListener('mousedown', function(e) {
-      for (let i = 0; i < 500; i++) {
-        this.add();
+      if (interactionCount < maxInteractions) {
+        for (let i = 0; i < 500; i++) {
+          this.add();
+        }
+        interactionCount++;
       }
     }.bind(this));
+
     this.canvas.addEventListener('touchstart', function(e) {
       e.preventDefault();
-      for (let i = 0; i < 100; i++) {
-        this.add();
+      if (interactionCount < maxInteractions) {
+        for (let i = 0; i < 100; i++) {
+          this.add();
+        }
+        interactionCount++;
       }
     }.bind(this));
   };
+
   let app = new Build();
   app.run();
 })();
