@@ -32,8 +32,8 @@ window.addEventListener('load', event => {
     clickSound.play()
 
     setTimeout(() => {
-      // voiceOverStart.currentTime = 0
-      // voiceOverStart.play()
+      voiceOverStart.currentTime = 0
+      voiceOverStart.play()
       backgroundSound.currentTime = 0
       backgroundSound.play()
     }, 500)
@@ -106,7 +106,7 @@ window.addEventListener('load', event => {
 
   colorButtons.forEach(button => {
     button.addEventListener('click', async function () {
-      if (isTransitioning) {
+      if (isTransitioning || !voiceOverStartEnded) {
         return; // Ignorer si une transition est déjà en cours
       }
       isTransitioning = true; // Activer le verrou

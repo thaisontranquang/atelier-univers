@@ -173,8 +173,8 @@ button {
     gap: 1rem;
 
     div {
-      width: 60px;
-      height: 60px;
+      width: 80px;
+      height: 80px;
       backdrop-filter: blur(3px);
       border-radius: 100%;
     }
@@ -183,7 +183,7 @@ button {
       text-align: center;
       color: rgb(254, 254, 254);
       font-weight: 600;
-      font-family: 'Raleway', sans-serif;
+      font-family: 'Fraunces', sans-serif;
     }
 
     img {
@@ -194,43 +194,50 @@ button {
 
   .red {
     div {
-      background: #ff000099;
+      background: url(/assets/images/planets/red.svg);
+      background-size: contain;
     }
   }
 
   .orange {
     div {
-      background: rgb(255, 89, 0, 0.6);
+      background: url(/assets/images/planets/orange.svg);
+      background-size: contain;
     }
   }
 
   .yellow {
     div {
-      background: rgb(234, 182, 11, 0.6);
+      background: url(/assets/images/planets/yellow.svg);
+      background-size: contain;
     }
   }
 
   .green {
     div {
-      background: rgb(46, 153, 0, 0.6);
+      background: url(/assets/images/planets/green.svg);
+      background-size: contain;
     }
   }
 
   .blue {
     div {
-      background: rgb(0, 15, 153, 0.6);
+      background: url(/assets/images/planets/blue.svg);
+      background-size: contain;
     }
   }
 
   .indigo {
     div {
-      background: rgb(103, 3, 197, 0.6);
+      background: url(/assets/images/planets/indigo.svg);
+      background-size: contain;
     }
   }
 
   .purple {
     div {
-      background: rgb(216, 0, 220, 0.6);
+      background: url(/assets/images/planets/purple.svg);
+      background-size: contain;
     }
   }
 }
