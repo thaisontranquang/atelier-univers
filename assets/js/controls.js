@@ -36,7 +36,7 @@ window.addEventListener('load', event => {
 
     setTimeout(() => {
       voiceOverStart.currentTime = 0
-      // voiceOverStart.play()
+      voiceOverStart.play()
       backgroundSound.currentTime = 0
       backgroundSound.play()
     }, 500)
@@ -111,12 +111,12 @@ window.addEventListener('load', event => {
 
   colorButtons.forEach(button => {
     button.addEventListener('click', async function () {
-      if (isTransitioning) {
-        return; // Ignorer si une transition est déjà en cours
-      }
-      // if (isTransitioning || !voiceOverStartEnded) {
+      // if (isTransitioning) {
       //   return; // Ignorer si une transition est déjà en cours
       // }
+      if (isTransitioning || !voiceOverStartEnded) {
+        return; // Ignorer si une transition est déjà en cours
+      }
       isTransitioning = true; // Activer le verrou
 
       particleColor = button.id.replace('Button', '').toLowerCase();
