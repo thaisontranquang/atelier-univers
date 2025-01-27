@@ -104,22 +104,12 @@ window.addEventListener('load', event => {
 
   let isTransitioning = false; // Verrou pour éviter les actions simultanées
 
-  let particleColor = { color1: 'rgb(255, 255, 255)', color2: 'rgb(0, 0, 0)' }; // Couleurs par défaut en RGB
-
   colorButtons.forEach(button => {
     button.addEventListener('click', async function () {
       if (isTransitioning || !voiceOverStartEnded) {
         return; // Ignorer si une transition est déjà en cours
       }
       isTransitioning = true; // Activer le verrou
-
-      particleColor = button.id.replace('Button', '').toLowerCase();
-
-      // Émettre un événement pour informer le fichier 2 du changement de couleur
-      const colorEvent = new CustomEvent('colorChange', {
-        detail: { color: particleColor }
-      });
-      window.dispatchEvent(colorEvent);
 
       // Arrêter le son de fond
       backgroundSound.pause();
