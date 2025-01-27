@@ -1,4 +1,7 @@
+let secondWindow = null; // Référence à la seconde fenêtre
+
 window.addEventListener('load', event => {
+  secondWindow = window.open('second-screen.html', 'SecondScreen', 'width=1920,height=1080');
   let canvas = document.getElementById('canv')
   let startButton = document.getElementById('startButton')
   let stopButton = document.getElementById('stopButton')
@@ -33,7 +36,7 @@ window.addEventListener('load', event => {
 
     setTimeout(() => {
       voiceOverStart.currentTime = 0
-      voiceOverStart.play()
+      // voiceOverStart.play()
       backgroundSound.currentTime = 0
       backgroundSound.play()
     }, 500)
@@ -104,12 +107,25 @@ window.addEventListener('load', event => {
 
   let isTransitioning = false; // Verrou pour éviter les actions simultanées
 
+  let particleColor = { color1: 'rgb(255, 255, 255)', color2: 'rgb(0, 0, 0)' }; // Couleurs par défaut en RGB
+
   colorButtons.forEach(button => {
     button.addEventListener('click', async function () {
-      if (isTransitioning || !voiceOverStartEnded) {
+      if (isTransitioning) {
         return; // Ignorer si une transition est déjà en cours
       }
+      // if (isTransitioning || !voiceOverStartEnded) {
+      //   return; // Ignorer si une transition est déjà en cours
+      // }
       isTransitioning = true; // Activer le verrou
+
+      particleColor = button.id.replace('Button', '').toLowerCase();
+
+      // Émettre un événement pour informer le fichier 2 du changement de couleur
+      const colorEvent = new CustomEvent('colorChange', {
+        detail: { color: particleColor }
+      });
+      window.dispatchEvent(colorEvent);
 
       // Arrêter le son de fond
       backgroundSound.pause();
@@ -130,8 +146,11 @@ window.addEventListener('load', event => {
       fadeOut(whiteNoise, 2000);
       whiteNoise.pause();
 
-      // Récupérer les chemins des sons
       let color = button.id.replace('Button', '').toLowerCase();
+
+      secondWindow.postMessage({ type: 'updateImage', color: color }, '*');
+
+      // Récupérer les chemins des sons
       let soundPath = `/assets/sounds/${color}-8D.mp3`;
       let universeSoundPath = `/assets/sounds/universes/univers-${color}.mp3`;
 
