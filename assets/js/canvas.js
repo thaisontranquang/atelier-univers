@@ -1,3 +1,23 @@
+let particleColor = { color1: 'rgb(255, 255, 255)', color2: 'rgb(0, 0, 0)' }; // Couleurs par défaut en RGB
+
+window.addEventListener('colorChange', event => {
+  const color = event.detail.color;
+  const colorMap = {
+    red: { color1: 'rgb(0, 255, 0)', color2: 'rgb(255, 0, 0)' },
+    orange: { color1: 'rgb(0, 255, 255)', color2: 'rgb(255, 165, 0)' },
+    yellow: { color1: 'rgb(225, 245, 171)', color2: 'rgb(0, 38, 255)' },
+    green: { color1: 'rgb(250, 219, 219)', color2: 'rgb(255, 0, 0)' },
+    blue: { color1: 'rgb(255, 255, 0)', color2: 'rgb(0, 0, 255)' },
+    indigo: { color1: 'rgb(255, 215, 0)', color2: 'rgb(75, 0, 130)' },
+    purple: { color1: 'rgb(0, 0, 0)', color2: 'rgb(0, 0, 0)' }
+  };
+
+  if (colorMap[color]) {
+    particleColor.color1 = colorMap[color].color1;
+    particleColor.color2 = colorMap[color].color2;
+  }
+});
+
 let num = 500;
 let w = window.innerWidth;
 let h = window.innerHeight;
@@ -224,18 +244,29 @@ let trans = {
       this.letr[i].transIn.sz = this.objSz;
       this.letr[i].vupd();
       if (this.letr[i].transOut.p < 0) continue;
-      let g = this.$.createRadialGradient(this.letr[i].transOut.x, this.letr[i].transOut.y, this.letr[i].transOut.p, this.letr[i].transOut.x, this.letr[i].transOut.y, this.letr[i].transOut.p*2);
+
+      // Mise à jour des gradients dynamiquement avec les couleurs RGB
+      let g = this.$.createRadialGradient(
+        this.letr[i].transOut.x,
+        this.letr[i].transOut.y,
+        this.letr[i].transOut.p,
+        this.letr[i].transOut.x,
+        this.letr[i].transOut.y,
+        this.letr[i].transOut.p * 2
+      );
       this.$.globalCompositeOperation = 'lighter';
-       g.addColorStop(0, 'hsla(255, 255%, 255%, 1)');
-        g.addColorStop(.5, 'hsla('+(i+2)+',85%, 40%,1)');
-        g.addColorStop(1,'hsla('+(i)+',85%, 40%,.5)');
-        this.$.fillStyle = g;
+      g.addColorStop(0, particleColor.color1);
+      g.addColorStop(0.3, particleColor.color1);
+      g.addColorStop(0.7, particleColor.color2);
+      g.addColorStop(1, particleColor.color2);
+      this.$.fillStyle = g;
       this.$.beginPath();
       this.$.arc(this.letr[i].transOut.x, this.letr[i].transOut.y, this.letr[i].transOut.p * 2, 0, Math.PI * 2, false);
       this.$.fill();
       this.$.closePath();
     }
   };
+
   Build.prototype.anim = function() {
     window.requestAnimationFrame = (function() {
       return window.requestAnimationFrame ||
