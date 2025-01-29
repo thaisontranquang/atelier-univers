@@ -10,14 +10,14 @@ window.addEventListener('load', event => {
   let endScreen = document.getElementById('endScreen')
 
   let audio = null
-  let whiteNoise = new Audio('/assets/sounds/white-8D.mp3')
+  let whiteNoise = new Audio('assets/sounds/white-8D.mp3')
   whiteNoise.currentTime = 0
   whiteNoise.loop = true
 
-  let clickSound = new Audio('/assets/sounds/click.mp3')
-  let voiceOverStart = new Audio('/assets/sounds/voice-start.mp3')
-  let voiceOverEnd = new Audio('/assets/sounds/voice-end.mp3')
-  let backgroundSound = new Audio('/assets/sounds/black-8D.mp3')
+  let clickSound = new Audio('assets/sounds/click.mp3')
+  let voiceOverStart = new Audio('assets/sounds/voice-start.mp3')
+  let voiceOverEnd = new Audio('assets/sounds/voice-end.mp3')
+  let backgroundSound = new Audio('assets/sounds/black-8D.mp3')
 
   whiteNoise.loop = true
   backgroundSound.loop = true
@@ -151,8 +151,8 @@ window.addEventListener('load', event => {
       secondWindow.postMessage({ type: 'updateImage', color: color }, '*');
 
       // Récupérer les chemins des sons
-      let soundPath = `/assets/sounds/${color}-8D.mp3`;
-      let universeSoundPath = `/assets/sounds/universes/univers-${color}.mp3`;
+      let soundPath = `assets/sounds/${color}-8D.mp3`;
+      let universeSoundPath = `assets/sounds/universes/univers-${color}.mp3`;
 
       // Assurer que le son d'univers précédent est terminé
       if (activeUniverseSound && !activeUniverseSound.ended) {

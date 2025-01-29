@@ -9,7 +9,7 @@ window.addEventListener('load', event => {
       const color = event.data.color; // Déclaration de color ici
 
       // Mettre à jour la source de l'image en fonction de la couleur
-      image.src = `/assets/images/universes/${color}.png`;
+      image.src = `../images/universes/${color}.png`;
     }
   });
 });

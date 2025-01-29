@@ -175,31 +175,31 @@ button {
   height: 64px;
 }
 .colors-container .red div {
-  background: url(/assets/images/planets/red.svg);
+  background: url(../images/planets/red.svg);
   background-size: contain;
 }
 .colors-container .orange div {
-  background: url(/assets/images/planets/orange.svg);
+  background: url(../images/planets/orange.svg);
   background-size: contain;
 }
 .colors-container .yellow div {
-  background: url(/assets/images/planets/yellow.svg);
+  background: url(../images/planets/yellow.svg);
   background-size: contain;
 }
 .colors-container .green div {
-  background: url(/assets/images/planets/green.svg);
+  background: url(../images/planets/green.svg);
   background-size: contain;
 }
 .colors-container .blue div {
-  background: url(/assets/images/planets/blue.svg);
+  background: url(../images/planets/blue.svg);
   background-size: contain;
 }
 .colors-container .indigo div {
-  background: url(/assets/images/planets/indigo.svg);
+  background: url(../images/planets/indigo.svg);
   background-size: contain;
 }
 .colors-container .purple div {
-  background: url(/assets/images/planets/purple.svg);
+  background: url(../images/planets/purple.svg);
   background-size: contain;
 }
 
